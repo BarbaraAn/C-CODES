@@ -1,0 +1,144 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+
+int i,e1,e2,s1,s2;
+
+char n1[20],n2[20];
+
+printf ("User No1 give your name:");
+
+scanf ("%s",&n1);
+
+printf ("User No2 give your name:");
+
+scanf ("%s",&n2);
+
+s1=0;
+
+s2=0;
+
+printf ("welcome, ready for 3 round ?");
+
+
+printf("\n ************ LETS START ! ************ \n");
+
+i=1;
+
+do
+
+{
+
+ printf("ROUND No%d \n",i);
+
+ //χρηστης 1
+
+ printf("%s give your choise:",&n1);
+
+ printf("press 1,2 or 3 \n 1.stone \n 2.scissors \n 3.paper \n 4.end game \n");
+ 
+ //με την do-while κανουμε τον ελγχο εγκυροτητας
+ 
+do
+ {
+     scanf("%d",&e1);
+ }
+ 
+ while (e1!=1 && e1!=2 && e1!=3 && e1!=4);
+
+
+
+ //χρηστης 2
+
+ printf("%s give your choise:",&n2);
+
+ printf("press 1,2 or 3 \n 1.stone \n 2.scissors \n 3.paper \n 4.end game \n");
+ 
+ do
+ {
+   scanf("%d",&e2);
+ }
+ 
+ while(e2!=1 && e2!=2 && e2!=3 && e2!=4);
+
+ //εύρεση νικητή
+
+  if (e1 == e2)
+ 
+ //ισοποαλια θα ειναι καθε φορα που τα 2 ειναι ιδια
+ {
+   printf("draw \n");
+   s1++;
+   s2++;
+ }
+ 
+ else if(e1==1)
+ 
+{
+  if(e2== 2)
+   {
+         printf("round %d winner is %s \n",i,&n1);
+         s1++;
+
+   }
+  
+    else if(e2 == 3)
+   
+  {
+        printf("round %d winner is %s \n",i,&n2);
+        s2++;
+   }
+ }
+ else if(e1==2)
+ {
+  if(e2== 1)
+   {
+     printf("round %d winner is %s \n",i,&n2);
+        s2++;
+   }
+   else if(e2 == 3)
+   {
+        printf("round %d winner is %s \n",i,&n1);
+        s1++;
+   }
+ }
+ else if(e1==3)
+ {
+  if(e2== 1)
+   {
+     printf("round %d winner is %s \n",i,&n1);
+        s1++;
+   }
+   else if(e2 == 2)
+   {
+        printf("round %d winner is %s \n",i,&n2);
+        s2++;
+   }
+ }
+ i++;
+}
+while((e1!=4 || e2!=4 ) && (i<=3));
+
+
+printf("%s your score is: %d points \n",&n1,s1);
+printf("%s your score is: %d points \n",&n2,s2);
+printf("%d <---> %d \n",s1,s2);
+
+//μεσα απο μια if θα βρεθει ο νικητης
+
+if (s1>s2)
+{
+  printf("** winnner is %s **",&n1);
+}
+else if (s1<s2)
+{
+  printf("** winnner is %s **",&n2);
+}
+else if (s1==s2)
+{
+  printf("** game is draw **");
+}
+
+}
